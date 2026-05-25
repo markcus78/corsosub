@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corso sub primo livello · Wellness Town</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  :root {
+    --deep: #061826;
+    --deep-2: #0a2336;
+    --deep-3: #0d3a5c;
+    --teal: #4dd0e1;
+    --teal-soft: #7fd8de;
+    --sand: #f4d35e;
+    --sand-warm: #f0b04a;
+    --paper: #f5f1e8;
+    --paper-soft: #ede6d3;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--deep); color: #e8eef3; }
+  .serif { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: -0.01em; }
+  .serif-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; }
+  .hero-bg {
+    background-image:
+      linear-gradient(180deg, rgba(6,24,38,0.55) 0%, rgba(6,24,38,0.7) 60%, rgba(6,24,38,0.95) 100%),
+      url('https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=2400&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .deep-bg { background: var(--deep); }
+  .paper-bg { background: var(--paper); color: var(--deep); }
+  .deep-2-bg {
+    background:
+      radial-gradient(circle at 70% 30%, rgba(77,208,225,0.06), transparent 60%),
+      linear-gradient(180deg, var(--deep) 0%, var(--deep-2) 100%);
+  }
+  .quote-bg {
+    background-image:
+      linear-gradient(180deg, rgba(6,24,38,0.85) 0%, rgba(6,24,38,0.92) 100%),
+      url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2400&q=80');
+    background-size: cover; background-position: center;
+  }
+  .btn-sand {
+    background: var(--sand);
+    color: var(--deep);
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+  .btn-sand:hover { background: var(--sand-warm); transform: translateY(-1px); }
+  .btn-ghost {
+    border: 1px solid rgba(232,238,243,0.25);
+    color: #e8eef3; transition: all 0.25s ease;
+  }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .divider-soft { border-color: rgba(232,238,243,0.12); }
+  .ray {
+    position: absolute; top: -10%; width: 2px;
+    background: linear-gradient(180deg, rgba(77,208,225,0.25), transparent 80%);
+    pointer-events: none;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 100px;
+    background: rgba(77,208,225,0.08);
+    border: 1px solid rgba(77,208,225,0.18);
+    font-size: 13px; color: var(--teal-soft);
+    letter-spacing: 0.02em;
+  }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.2s ease; }
+  details[open] .faq-q { color: var(--teal); }
+  input[type="radio"]:checked + .radio-card {
+    border-color: var(--teal);
+    background: rgba(77,208,225,0.06);
+  }
+  input[type="radio"]:checked + .radio-card .radio-dot {
+    background: var(--teal);
+    border-color: var(--teal);
+  }
+  input[type="radio"]:checked + .radio-card .radio-dot::after {
+    content: ''; display: block; width: 6px; height: 6px;
+    background: var(--deep); border-radius: 50%;
+    margin: 4px auto 0;
+  }
+  input[type="text"], input[type="email"], input[type="tel"] {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(232,238,243,0.18);
+    color: #e8eef3;
+    transition: border-color 0.2s ease;
+  }
+  input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    border-color: var(--teal); outline: none;
+  }
+  ::placeholder { color: rgba(232,238,243,0.4); }
+  .vline { width: 1px; height: 40px; background: linear-gradient(180deg, transparent, var(--teal), transparent); }
+  .scroll-hint { animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(6px); opacity: 1; } }
+  .num-mark {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 14px; color: var(--teal-soft);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<nav class="absolute top-0 left-0 right-0 z-30 px-6 md:px-12 py-6 flex items-center justify-between">
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center">
+      <span class="serif text-base text-white tracking-tight">w</span>
+    </div>
+    <span class="text-xs uppercase tracking-[0.22em] text-white/70">Wellness Town</span>
+  </div>
+  <a href="#prenota" class="hidden md:inline-flex btn-ghost px-5 py-2 rounded-full text-sm">Prenota la prova</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero-bg relative min-h-screen flex items-center px-6 md:px-12">
+  <div class="ray" style="left: 12%; height: 70vh;"></div>
+  <div class="ray" style="left: 28%; height: 55vh; opacity: 0.5;"></div>
+  <div class="ray" style="left: 64%; height: 80vh; opacity: 0.7;"></div>
+  <div class="ray" style="left: 82%; height: 50vh; opacity: 0.4;"></div>
+
+  <div class="relative z-10 max-w-4xl pt-24 pb-12">
+    <div class="pill mb-8">
+      <span class="w-1.5 h-1.5 rounded-full bg-teal-300"></span>
+      Corso sub primo livello · 2026
+    </div>
+
+    <h1 class="serif tracking-tight text-white text-5xl md:text-7xl lg:text-8xl leading-[1.02]">
+      Quest'estate,<br>
+      <span class="serif-italic" style="color: var(--teal-soft);">scendi sotto.</span>
+    </h1>
+
+    <p class="serif text-white/85 text-2xl md:text-3xl mt-8 max-w-2xl leading-relaxed">
+      Dove non c'è rumore. Dove tutto si muove insieme.<br>
+      Ti prepariamo qui. Ti portiamo in mare.
+    </p>
+
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 max-w-3xl text-sm text-white/75">
+      <div class="flex items-start gap-3 border-l border-white/15 pl-4">
+        <span class="text-white/90">Brevetto FIPSAS, PADI o SSI</span>
+      </div>
+      <div class="flex items-start gap-3 border-l border-white/15 pl-4">
+        <span class="text-white/90">5 lezioni piscina · 5 immersioni mare</span>
+      </div>
+      <div class="flex items-start gap-3 border-l border-white/15 pl-4">
+        <span class="text-white/90">Istruttore Adriano Natalini · dal 1993</span>
+      </div>
+      <div class="flex items-start gap-3 border-l border-white/15 pl-4">
+        <span class="text-white/90">Prove gratuite · 12 e 13 giugno</span>
+      </div>
+    </div>
+
+    <div class="mt-12 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+      <a href="#prenota" class="btn-sand px-8 py-4 rounded-full text-sm font-semibold tracking-wide inline-flex items-center gap-2">
+        Prenota la prova gratuita
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#corso" class="text-white/70 text-sm tracking-wide hover:text-white transition flex items-center gap-2">
+        <span>Scopri il corso</span>
+        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <p class="mt-16 text-xs uppercase tracking-[0.24em] text-white/55">
+      Wellness Town · Via Francesco Giangiacomo 55, Roma
+    </p>
+    <p class="text-xs text-white/45 mt-1">La struttura sportiva più grande di Roma sud.</p>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center scroll-hint">
+    <span class="text-[10px] uppercase tracking-[0.3em] text-white/50 mb-2">Scorri</span>
+    <div class="vline"></div>
+  </div>
+</section>
+
+<!-- SEZIONE 1 — PROBLEMA / DESIDERIO -->
+<section class="deep-2-bg relative py-24 md:py-36 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="num-mark mb-6">01 · Quello che non vedi</div>
+    <h2 class="serif text-white text-4xl md:text-6xl leading-[1.08] tracking-tight max-w-3xl">
+      Il mare a Roma lo guardi dalla riva. E quando ti tuffi, vedi azzurro per due metri.
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 mt-16 items-start">
+      <div class="space-y-6 text-white/75 text-lg leading-relaxed">
+        <p>C'è un altro mare. Non quello che vedi quando metti i piedi nell'acqua. Quello che <span class="text-white">comincia tre metri sotto la superficie</span>.</p>
+        <p>Lì sotto è silenzio. Si sentono solo i pesci che si muovono e il tuo respiro nel boccaglio. Tutto attorno si muove all'unisono — alghe, banchi, luce — come se il mondo intero fosse una cosa sola che respira con te.</p>
+        <p class="text-white/55 serif-italic text-xl">La maggior parte delle persone non ci scende mai. Non perché non vogliono. Perché non sanno come si comincia.</p>
+      </div>
+      <div class="relative h-[420px] md:h-[520px] rounded-sm overflow-hidden">
+        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 40%, rgba(6,24,38,0.5) 100%);"></div>
+        <div class="absolute bottom-6 left-6 right-6">
+          <p class="serif-italic text-white/80 text-base">"Tre metri sotto, il mondo cambia."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 2 — SOLUZIONE -->
+<section id="corso" class="deep-bg py-24 md:py-36 px-6 md:px-12 border-t border-white/5">
+  <div class="max-w-5xl mx-auto">
+    <div class="num-mark mb-6">02 · Il corso</div>
+    <h2 class="serif text-white text-4xl md:text-6xl leading-[1.08] tracking-tight max-w-4xl">
+      Si comincia qui. In una piscina, a Roma sud. <span class="serif-italic" style="color: var(--teal-soft);">E si finisce a Ponza, a 18 metri di profondità.</span>
+    </h2>
+
+    <p class="text-white/70 text-lg mt-8 max-w-3xl leading-relaxed">
+      Il corso subacqueo primo livello a Wellness Town è il percorso completo per cominciare.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-y-8 gap-x-12 mt-16">
+      <div class="flex gap-5 border-l border-white/10 pl-6">
+        <span class="num-mark shrink-0">i</span>
+        <div>
+          <h3 class="serif text-white text-2xl mb-2">5 lezioni in piscina</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Nella nostra vasca interna, per imparare a respirare con le bombole, gestire l'attrezzatura, sentirti a casa nell'acqua profonda.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 border-l border-white/10 pl-6">
+        <span class="num-mark shrink-0">ii</span>
+        <div>
+          <h3 class="serif text-white text-2xl mb-2">5 immersioni in mare</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Ponza, Ventotene, Isola del Giglio, Isola di Zannone — sotto la guida diretta dell'istruttore.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 border-l border-white/10 pl-6">
+        <span class="num-mark shrink-0">iii</span>
+        <div>
+          <h3 class="serif text-white text-2xl mb-2">Teoria online</h3>
+          <p class="text-white/65 text-sm leading-relaxed">Sulla piattaforma SSI. L'esame non lo dai in aula, lo fai dal divano.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 border-l border-white/10 pl-6">
+        <span class="num-mark shrink-0">iv</span>
+        <div>
+          <h3 class="serif text-white text-2xl mb-2">Esame finale</h3>
+          <p class="text-white/65 text-sm leading-relaxed">In piscina e in mare. Con il tuo istruttore.</p>
+        </div>
+      </div>
+      <div class="flex gap-5 border-l border-white/10 pl-6 md:col-span-2">
+        <span class="num-mark shrink-0">v</span>
+        <div>
+          <h3 class="serif text-white text-2xl mb-2">Brevetto FIPSAS, PADI o SSI</h3>
+          <p class="text-white/65 text-sm leading-relaxed">A scelta. Riconosciuto in tutto il mondo, valido a vita.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20 pt-10 border-t divider-soft">
+      <p class="serif-italic text-white/75 text-2xl md:text-3xl max-w-3xl leading-snug">
+        Alla fine del corso, scendi a 18 metri. Da solo, in coppia, con il tuo istruttore — dove vuoi e quando vuoi.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 3 — ISTRUTTORE -->
+<section class="quote-bg py-28 md:py-40 px-6 md:px-12 relative">
+  <div class="max-w-5xl mx-auto">
+    <div class="num-mark mb-6">03 · L'istruttore</div>
+    <h2 class="serif text-white text-4xl md:text-6xl leading-[1.08] tracking-tight max-w-4xl">
+      Trent'anni di immersioni. <span class="serif-italic" style="color: var(--teal-soft);">Maldive, Messico, Mar Rosso. Italia da nord a sud.</span>
+    </h2>
+
+    <div class="grid md:grid-cols-5 gap-12 mt-16 items-start">
+      <div class="md:col-span-2">
+        <div class="aspect-[4/5] rounded-sm overflow-hidden border border-white/10">
+          <div class="w-full h-full" style="background-image: url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+        </div>
+        <p class="mt-4 text-xs uppercase tracking-[0.22em] text-white/55">Adriano Natalini · Istruttore</p>
+      </div>
+
+      <div class="md:col-span-3 space-y-6 text-white/75 text-lg leading-relaxed">
+        <p>Il corso è guidato da <span class="text-white">Adriano Natalini</span>, istruttore subacqueo certificato dal 1993. Ha cominciato a immergersi nel 1991, convinto dal fratello. Da allora non ha più smesso.</p>
+        <p>Per dieci anni ha avuto una scuola sub a Roma con altri tre istruttori. Ha portato sott'acqua persone in tutto il mondo. Ora porta sott'acqua chi comincia.</p>
+
+        <div class="mt-10 pt-8 border-t divider-soft">
+          <i data-lucide="quote" class="w-6 h-6 mb-4" style="color: var(--teal-soft);"></i>
+          <p class="serif-italic text-white text-2xl md:text-3xl leading-snug">
+            "Sott'acqua tutto si muove nello stesso momento — come se fosse un immenso mondo sommerso che si muove all'unisono. Questa è una cosa che mi dà molta serenità."
+          </p>
+          <p class="text-sm text-white/55 mt-4">— Adriano Natalini</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 4 — LISTINO -->
+<section class="paper-bg py-24 md:py-36 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="num-mark mb-6" style="color: var(--deep-3);">04 · Cosa include</div>
+    <h2 class="serif text-4xl md:text-6xl leading-[1.05] tracking-tight max-w-3xl" style="color: var(--deep);">
+      Tutto compreso. <span class="serif-italic" style="color: var(--deep-3);">Tranne il mare, che non si vende.</span>
+    </h2>
+
+    <div class="mt-10 flex items-baseline gap-4">
+      <span class="serif text-7xl md:text-8xl tracking-tight" style="color: var(--deep);">€500</span>
+      <span class="text-base" style="color: var(--deep-3);">corso completo · primo livello</span>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 mt-16">
+      <div>
+        <div class="flex items-center gap-3 mb-8">
+          <i data-lucide="check" class="w-5 h-5" style="color: var(--deep-3);"></i>
+          <h3 class="serif text-2xl" style="color: var(--deep);">Cosa è compreso</h3>
+        </div>
+        <ul class="space-y-6">
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">5 lezioni in piscina</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Martedì e giovedì, 90 minuti l'una · vasca interna riscaldata</p>
+          </li>
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">Attrezzatura per la piscina</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Bombole, GAV, erogatori, piombi. Non devi comprare niente.</p>
+          </li>
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">Materiale didattico SSI</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Manuale + accesso al portale online per studiare da casa.</p>
+          </li>
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">Esami teorico e pratico</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Online + in vasca + in mare.</p>
+          </li>
+          <li class="pb-2">
+            <p class="font-medium" style="color: var(--deep);">Brevetto FIPSAS, PADI o SSI</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">A scelta. Riconosciuto in tutto il mondo.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="flex items-center gap-3 mb-8">
+          <i data-lucide="x" class="w-5 h-5" style="color: var(--deep-3);"></i>
+          <h3 class="serif text-2xl" style="color: var(--deep);">Cosa non è compreso</h3>
+        </div>
+        <ul class="space-y-6">
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">Pinne, maschera, boccaglio, muta</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Li porti tu. Se non li hai, ti diamo i riferimenti del nostro negozio di fiducia (Pellicano Mardi, 3 sedi a Roma, sconto allievi).</p>
+          </li>
+          <li class="border-b border-stone-300/40 pb-5">
+            <p class="font-medium" style="color: var(--deep);">Immersioni in mare</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">~€80 a uscita, a tuo carico. Adriano organizza tutto (location, barca, gruppo). Le uscite sono nelle isole pontine.</p>
+          </li>
+          <li class="pb-2">
+            <p class="font-medium" style="color: var(--deep);">Prerequisiti</p>
+            <p class="text-sm mt-1" style="color: var(--deep-3);">Saper nuotare. Massimo 10 partecipanti per corso. Si parte a metà giugno.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-stone-300/40 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <p class="text-sm serif-italic text-base" style="color: var(--deep-3);">
+        Sei già iscritto a Wellness Town? Il corso lo paghi <span class="font-semibold" style="color: var(--deep);">€450</span> (sconto del 10%).
+      </p>
+      <a href="#prenota" class="btn-sand px-7 py-3 rounded-full text-sm font-semibold tracking-wide inline-flex items-center gap-2 self-start md:self-auto">
+        Prenota la prova
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 5 — PROVA GRATUITA + FORM -->
+<section id="prenota" class="deep-2-bg py-24 md:py-36 px-6 md:px-12 relative">
+  <div class="ray" style="left: 8%; height: 60vh; opacity: 0.4;"></div>
+  <div class="ray" style="left: 92%; height: 50vh; opacity: 0.3;"></div>
+
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="num-mark mb-6">05 · Prova gratuita</div>
+    <h2 class="serif text-white text-4xl md:text-6xl leading-[1.08] tracking-tight max-w-3xl">
+      Non devi decidere oggi. <span class="serif-italic" style="color: var(--teal-soft);">Vieni a provare prima.</span>
+    </h2>
+
+    <div class="grid md:grid-cols-5 gap-12 mt-16">
+      <div class="md:col-span-2 space-y-5 text-white/75 text-lg leading-relaxed">
+        <p>Il <span class="text-white">12 e 13 giugno</span> Adriano sarà in piscina da noi per le prove pratiche.</p>
+        <p>Vieni con il costume. Ti diamo bombole, GAV, erogatori. Ti facciamo provare il respiro sott'acqua, scendere a fondo vasca, capire se è cosa per te.</p>
+        <p class="serif-italic text-2xl" style="color: var(--teal-soft);">Senza impegno. Senza pagare.<br>Se ti convince, decidi dopo.</p>
+        <div class="pt-4 flex items-center gap-2 text-sm text-white/55">
+          <i data-lucide="users" class="w-4 h-4"></i>
+          <span>Massimo 5 persone per turno · 4 turni disponibili</span>
+        </div>
+      </div>
+
+      <form class="md:col-span-3 bg-white/[0.03] border border-white/10 rounded-sm p-8 md:p-10 space-y-6">
+        <div>
+          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-3 block">Scegli il turno</label>
+          <div class="space-y-3">
+            <label class="block cursor-pointer">
+              <input type="radio" name="turno" class="hidden peer" value="ven-mattina">
+              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
+                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-white">Venerdì 12 giugno · mattina</p>
+                  <p class="text-xs text-white/55 mt-0.5">10:00 — 13:00</p>
+                </div>
+                <span class="text-xs text-white/45">3 posti</span>
+              </div>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="turno" class="hidden peer" value="ven-pomeriggio">
+              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
+                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-white">Venerdì 12 giugno · pomeriggio</p>
+                  <p class="text-xs text-white/55 mt-0.5">15:00 — 17:00</p>
+                </div>
+                <span class="text-xs text-white/45">5 posti</span>
+              </div>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="turno" class="hidden peer" value="sab-mattina">
+              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
+                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-white">Sabato 13 giugno · mattina</p>
+                  <p class="text-xs text-white/55 mt-0.5">10:00 — 13:00</p>
+                </div>
+                <span class="text-xs text-white/45">2 posti</span>
+              </div>
+            </label>
+            <label class="block cursor-pointer">
+              <input type="radio" name="turno" class="hidden peer" value="sab-pomeriggio">
+              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
+                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
+                <div class="flex-1">
+                  <p class="text-sm font-medium text-white">Sabato 13 giugno · pomeriggio</p>
+                  <p class="text-xs text-white/55 mt-0.5">15:00 — 17:00</p>
+                </div>
+                <span class="text-xs text-white/45">4 posti</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Nome</label>
+            <input type="text" placeholder="Il tuo nome" class="w-full px-4 py-3 rounded-sm text-sm">
+          </div>
+          <div>
+            <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Cognome</label>
+            <input type="text" placeholder="Il tuo cognome" class="w-full px-4 py-3 rounded-sm text-sm">
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Telefono</label>
+          <input type="tel" placeholder="+39 ..." class="w-full px-4 py-3 rounded-sm text-sm">
+        </div>
+
+        <div>
+          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Email</label>
+          <input type="email" placeholder="tu@esempio.it" class="w-full px-4 py-3 rounded-sm text-sm">
+        </div>
+
+        <button type="submit" class="btn-sand w-full py-4 rounded-full text-sm font-semibold tracking-wide flex items-center justify-center gap-2 mt-4">
+          Prenota il mio turno gratuito
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+        <p class="text-xs text-white/45 text-center">Ti contattiamo entro 24 ore per confermare.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 6 — FAQ -->
+<section class="deep-bg py-24 md:py-36 px-6 md:px-12 border-t border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <div class="num-mark mb-6">06 · Domande</div>
+    <h2 class="serif text-white text-4xl md:text-5xl leading-[1.1] tracking-tight mb-16">
+      Quello che <span class="serif-italic" style="color: var(--teal-soft);">ti stai chiedendo</span>.
+    </h2>
+
+    <div class="divide-y divide-white/10 border-y border-white/10">
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">Devo già saper nuotare?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">Sì, è l'unico vero prerequisito. Non devi essere un atleta — devi essere a tuo agio in acqua.</p>
+      </details>
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">E se ho paura della profondità?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">Le prime lezioni sono in piscina, a 1,5 metri. Si scende per gradi. L'istruttore è in acqua con te. Adriano fa questo dal 1991: nessuno è mai uscito dal corso senza aver fatto l'immersione finale.</p>
+      </details>
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">Quanto dura il corso?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">5 lezioni di piscina distribuite su 2-3 settimane (martedì e giovedì), poi le immersioni in mare nei weekend di luglio.</p>
+      </details>
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">E se non posso fare le immersioni in mare?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">Il brevetto si rilascia anche solo con piscina + teoria + esame, ma le immersioni in mare sono il senso del corso. Se non riesci a luglio, le recuperi a settembre.</p>
+      </details>
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">E se sono già iscritto a Wellness Town?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">Hai il 10% di sconto sul corso: €450 invece di €500.</p>
+      </details>
+      <details class="group py-6 px-2">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="faq-q serif text-white text-xl md:text-2xl transition-colors">Si paga tutto in una volta?</span>
+          <i data-lucide="plus" class="faq-icon w-5 h-5 text-white/60 shrink-0"></i>
+        </summary>
+        <p class="text-white/65 text-base leading-relaxed mt-4 max-w-2xl">Si paga in struttura al momento dell'iscrizione, con carta o bonifico. Se vuoi parlarne, vieni alle prove gratuite e ne discutiamo a quattro occhi — ci sono anche altre opzioni di accesso al corso che ti spieghiamo lì.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- SEZIONE 7 — FINAL CTA -->
+<section class="hero-bg relative py-32 md:py-44 px-6 md:px-12 border-t border-white/5">
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <h2 class="serif text-white text-4xl md:text-7xl leading-[1.05] tracking-tight">
+      Quest'estate, decidi tu<br>
+      <span class="serif-italic" style="color: var(--teal-soft);">da che parte stare.</span>
+    </h2>
+    <p class="serif-italic text-white/70 text-2xl md:text-3xl mt-6">Sopra, o sotto.</p>
+
+    <div class="mt-12">
+      <a href="#prenota" class="btn-sand px-10 py-5 rounded-full text-base font-semibold tracking-wide inline-flex items-center gap-3">
+        Prenota la prova gratuita
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+
+    <p class="mt-10 text-xs uppercase tracking-[0.24em] text-white/55">
+      4 turni · max 5 persone a turno · 12 e 13 giugno · Wellness Town, Roma
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="deep-bg border-t border-white/10 px-6 md:px-12 py-12">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center">
+          <span class="serif text-sm text-white tracking-tight">w</span>
+        </div>
+        <span class="text-xs uppercase tracking-[0.22em] text-white/70">Wellness Town</span>
+      </div>
+      <p class="text-sm text-white/55">Via Francesco Giangiacomo 55, Roma</p>
+      <p class="text-xs text-white/40 mt-1">La struttura sportiva più grande di Roma sud.</p>
+    </div>
+    <div class="flex gap-6 text-xs text-white/55">
+      <a href="#" class="hover:text-white transition">Contatti</a>
+      <a href="#" class="hover:text-white transition">Privacy</a>
+      <a href="#" class="hover:text-white transition">Termini</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-40 px-4 py-3 border-t border-white/10" style="background: rgba(6,24,38,0.95); backdrop-filter: blur(12px);">
+  <a href="#prenota" class="btn-sand w-full py-3 rounded-full text-sm font-semibold tracking-wide flex items-center justify-center gap-2">
+    Prenota la prova gratuita
+    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+  </a>
+</div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
