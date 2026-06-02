@@ -155,7 +155,7 @@
         <span class="text-white/90">Istruttore Adriano Natalini · dal 1993</span>
       </div>
       <div class="flex items-start gap-3 border-l border-white/15 pl-4">
-        <span class="text-white/90">Prove gratuite · giugno (date in arrivo)</span>
+        <span class="text-white/90">Prove gratuite · 12-13 e 19-20 giugno</span>
       </div>
     </div>
 
@@ -387,7 +387,7 @@
 
     <div class="grid md:grid-cols-5 gap-12 mt-16">
       <div class="md:col-span-2 space-y-5 text-white/75 text-lg leading-relaxed">
-        <p>Tutti i <span class="text-white">venerdì e sabato di giugno</span> (tranne l'ultimo weekend) Adriano sarà in piscina da noi per le prove pratiche, su prenotazione.</p>
+        <p>Adriano sarà in piscina da noi il <span class="text-white">12-13 e 19-20 giugno</span> per le prove pratiche, su prenotazione.</p>
         <p>Vieni con il costume. Ti diamo bombole, GAV, erogatori. Ti facciamo provare il respiro sott'acqua, scendere a fondo vasca, capire se è cosa per te.</p>
         <p class="serif-italic text-2xl" style="color: var(--teal-soft);">Senza impegno. Senza pagare.<br>Se ti convince, decidi dopo.</p>
         <div class="pt-4 flex items-center gap-2 text-sm text-white/55">
@@ -398,52 +398,40 @@
 
       <form class="md:col-span-3 bg-white/[0.03] border border-white/10 rounded-sm p-8 md:p-10 space-y-6">
         <div>
-          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-3 block">Scegli il turno</label>
-          <div class="space-y-3">
-            <label class="block cursor-pointer">
-              <input type="radio" name="turno" class="hidden peer" value="turno-1">
-              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
-                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium text-white">Venerdì · mattina</p>
-                  <p class="text-xs text-white/55 mt-0.5">Data da definire</p>
-                </div>
-                <span class="text-xs text-white/45">10 posti</span>
-              </div>
-            </label>
-            <label class="block cursor-pointer">
-              <input type="radio" name="turno" class="hidden peer" value="turno-2">
-              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
-                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium text-white">Venerdì · pomeriggio</p>
-                  <p class="text-xs text-white/55 mt-0.5">Data da definire</p>
-                </div>
-                <span class="text-xs text-white/45">10 posti</span>
-              </div>
-            </label>
-            <label class="block cursor-pointer">
-              <input type="radio" name="turno" class="hidden peer" value="turno-3">
-              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
-                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium text-white">Sabato · mattina</p>
-                  <p class="text-xs text-white/55 mt-0.5">Data da definire</p>
-                </div>
-                <span class="text-xs text-white/45">10 posti</span>
-              </div>
-            </label>
-            <label class="block cursor-pointer">
-              <input type="radio" name="turno" class="hidden peer" value="turno-4">
-              <div class="radio-card border border-white/12 rounded-sm p-4 hover:border-white/30 transition flex items-center gap-4">
-                <span class="radio-dot w-4 h-4 rounded-full border border-white/40 shrink-0"></span>
-                <div class="flex-1">
-                  <p class="text-sm font-medium text-white">Sabato · pomeriggio</p>
-                  <p class="text-xs text-white/55 mt-0.5">Data da definire</p>
-                </div>
-                <span class="text-xs text-white/45">10 posti</span>
-              </div>
-            </label>
+          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-4 block">Scegli data e orario</label>
+
+          <p class="text-xs text-white/40 uppercase tracking-[0.15em] mb-2">Venerdì 12 giugno</p>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-5">
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven12-1430"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">14:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven12-1500"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven12-1530"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven12-1600"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven12-1630"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:30</span></div></label>
+          </div>
+
+          <p class="text-xs text-white/40 uppercase tracking-[0.15em] mb-2">Sabato 13 giugno</p>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-5">
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab13-1500"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab13-1530"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab13-1600"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab13-1630"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:30</span></div></label>
+          </div>
+
+          <p class="text-xs text-white/40 uppercase tracking-[0.15em] mb-2 border-t border-white/8 pt-4">Venerdì 19 giugno</p>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2 mb-5">
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven19-1430"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">14:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven19-1500"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven19-1530"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven19-1600"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="ven19-1630"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:30</span></div></label>
+          </div>
+
+          <p class="text-xs text-white/40 uppercase tracking-[0.15em] mb-2">Sabato 20 giugno</p>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab20-1500"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab20-1530"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">15:30</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab20-1600"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:00</span></div></label>
+            <label class="block cursor-pointer"><input type="radio" name="turno" class="hidden peer" value="sab20-1630"><div class="radio-card border border-white/12 rounded-sm py-2.5 px-2 hover:border-white/30 transition text-center"><span class="text-sm font-medium text-white">16:30</span></div></label>
           </div>
         </div>
 
@@ -551,7 +539,7 @@
     </div>
 
     <p class="mt-10 text-xs uppercase tracking-[0.24em] text-white/55">
-      Max 10 persone a turno · venerdì e sabato di giugno · Wellness Town, Roma
+      Prove gratuite 12-13 e 19-20 giugno · su prenotazione · Wellness Town, Roma
     </p>
   </div>
 </section>
