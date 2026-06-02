@@ -107,6 +107,19 @@
     letter-spacing: 0.18em; text-transform: uppercase;
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','PIXEL_ID_QUI');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=PIXEL_ID_QUI&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body class="antialiased">
 
@@ -436,31 +449,52 @@
 
         <div class="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Nome</label>
-            <input type="text" placeholder="Il tuo nome" class="w-full px-4 py-3 rounded-sm text-sm">
+            <label for="nome" class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="Il tuo nome" required class="w-full px-4 py-3 rounded-sm text-sm">
           </div>
           <div>
-            <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Cognome</label>
-            <input type="text" placeholder="Il tuo cognome" class="w-full px-4 py-3 rounded-sm text-sm">
+            <label for="cognome" class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Cognome</label>
+            <input id="cognome" name="cognome" type="text" placeholder="Il tuo cognome" required class="w-full px-4 py-3 rounded-sm text-sm">
           </div>
         </div>
 
         <div>
-          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Telefono</label>
-          <input type="tel" placeholder="+39 ..." class="w-full px-4 py-3 rounded-sm text-sm">
+          <label for="telefono" class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Telefono</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+39 ..." required class="w-full px-4 py-3 rounded-sm text-sm">
         </div>
 
         <div>
-          <label class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Email</label>
-          <input type="email" placeholder="tu@esempio.it" class="w-full px-4 py-3 rounded-sm text-sm">
+          <label for="email" class="text-xs uppercase tracking-[0.2em] text-white/55 mb-2 block">Email</label>
+          <input id="email" name="email" type="email" placeholder="tu@esempio.it" required class="w-full px-4 py-3 rounded-sm text-sm">
         </div>
 
-        <button type="submit" class="btn-sand w-full py-4 rounded-full text-sm font-semibold tracking-wide flex items-center justify-center gap-2 mt-4">
+        <div class="flex items-start gap-3 pt-1">
+          <input type="checkbox" id="privacy" name="privacy" required
+            class="mt-0.5 shrink-0 w-4 h-4 cursor-pointer rounded"
+            style="accent-color: var(--teal);">
+          <label for="privacy" class="text-xs text-white/55 leading-relaxed cursor-pointer">
+            Accetto il trattamento dei dati personali ai sensi del
+            <a href="https://wellnesstown.it/privacy-policy" target="_blank"
+               class="text-white/80 underline hover:text-white transition">D.Lgs. 196/2003 e GDPR 2016/679</a>.
+          </label>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn-sand w-full py-4 rounded-full text-sm font-semibold tracking-wide flex items-center justify-center gap-2 mt-2">
           Prenota il mio turno gratuito
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </button>
 
         <p class="text-xs text-white/45 text-center">Ti contattiamo entro 24 ore per confermare.</p>
+
+        <!-- THANK YOU -->
+        <div id="thankyou-msg" style="display:none" class="text-center py-6">
+          <div class="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:rgba(77,208,225,0.1);border:1px solid rgba(77,208,225,0.25);">
+            <i data-lucide="check" class="w-6 h-6" style="color:var(--teal);"></i>
+          </div>
+          <h3 class="serif text-white text-3xl mb-3">Prenotazione ricevuta.</h3>
+          <p class="text-white/65">Ti confermiamo via WhatsApp o email entro 24 ore.</p>
+          <p class="text-white/40 text-sm mt-2">Ci vediamo in piscina — benvenuto sotto!</p>
+        </div>
       </form>
     </div>
   </div>
@@ -545,21 +579,27 @@
 
 <!-- FOOTER -->
 <footer class="deep-bg border-t border-white/10 px-6 md:px-12 py-12">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-    <div>
-      <div class="flex items-center gap-3 mb-3">
-        <div class="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center">
-          <span class="serif text-sm text-white tracking-tight">w</span>
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center">
+            <span class="serif text-sm text-white tracking-tight">w</span>
+          </div>
+          <span class="text-xs uppercase tracking-[0.22em] text-white/70">Wellness Town</span>
         </div>
-        <span class="text-xs uppercase tracking-[0.22em] text-white/70">Wellness Town</span>
+        <p class="text-sm text-white/55">Via Francesco Giangiacomo 55, Roma</p>
+        <p class="text-xs text-white/40 mt-1">La struttura sportiva più grande di Roma sud.</p>
       </div>
-      <p class="text-sm text-white/55">Via Francesco Giangiacomo 55, Roma</p>
-      <p class="text-xs text-white/40 mt-1">La struttura sportiva più grande di Roma sud.</p>
+      <div class="flex flex-col gap-2 text-xs text-white/50">
+        <a href="https://wellnesstown.it" target="_blank" class="hover:text-white transition">wellnesstown.it</a>
+        <a href="https://wellnesstown.it/privacy-policy" target="_blank" class="hover:text-white transition">Informativa sulla privacy</a>
+        <a href="https://wellnesstown.it/cookie-policy" target="_blank" class="hover:text-white transition">Cookie policy</a>
+      </div>
     </div>
-    <div class="flex gap-6 text-xs text-white/55">
-      <a href="#" class="hover:text-white transition">Contatti</a>
-      <a href="#" class="hover:text-white transition">Privacy</a>
-      <a href="#" class="hover:text-white transition">Termini</a>
+    <div class="border-t border-white/8 pt-6 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-white/30">
+      <span>Appiae SSD a r.l. · P.IVA IT[INSERIRE] · Via Francesco Giangiacomo 55, 00144 Roma</span>
+      <span>© 2026 Wellness Town. Tutti i diritti riservati.</span>
     </div>
   </div>
 </footer>
@@ -629,6 +669,44 @@ lucide.createIcons();
       section.style.display = 'block';
       section.scrollIntoView({behavior:'smooth', block:'nearest'});
     });
+  });
+})();
+
+// Submit handler
+(function() {
+  var ENDPOINT = 'APPS_SCRIPT_URL_QUI';
+  var form = document.querySelector('#prenota form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var turno = document.getElementById('turno-value').value;
+    if (!turno) {
+      var grid = document.getElementById('date-grid');
+      grid.style.outline = '1px solid var(--teal)';
+      grid.scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(function(){ grid.style.outline = ''; }, 2000);
+      return;
+    }
+    var payload = {
+      timestamp: new Date().toISOString(),
+      nome: document.getElementById('nome').value,
+      cognome: document.getElementById('cognome').value,
+      telefono: document.getElementById('telefono').value,
+      email: document.getElementById('email').value,
+      turno: turno
+    };
+    if (ENDPOINT !== 'APPS_SCRIPT_URL_QUI') {
+      fetch(ENDPOINT, {method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(payload)}).catch(function(){});
+    }
+    if (typeof fbq !== 'undefined') fbq('track','Lead',{content_name: turno});
+    var kids = Array.from(form.children);
+    kids.forEach(function(el){ if (el.id !== 'thankyou-msg') el.style.display = 'none'; });
+    var ty = document.getElementById('thankyou-msg');
+    ty.style.display = 'block';
+    lucide.createIcons();
+    ty.scrollIntoView({behavior:'smooth', block:'center'});
   });
 })();
 </script>
