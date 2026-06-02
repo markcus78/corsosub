@@ -474,7 +474,7 @@ src="https://www.facebook.com/tr?id=555289287964178&ev=PageView&noscript=1"/></n
             style="accent-color: var(--teal);">
           <label for="privacy" class="text-xs text-white/55 leading-relaxed cursor-pointer">
             Accetto il trattamento dei dati personali ai sensi del
-            <a href="https://wellnesstown.it/privacy-policy" target="_blank"
+            <a href="https://wellnesstown.it/privacy" target="_blank"
                class="text-white/80 underline hover:text-white transition">D.Lgs. 196/2003 e GDPR 2016/679</a>.
           </label>
         </div>
@@ -593,7 +593,7 @@ src="https://www.facebook.com/tr?id=555289287964178&ev=PageView&noscript=1"/></n
       </div>
       <div class="flex flex-col gap-2 text-xs text-white/50">
         <a href="https://wellnesstown.it" target="_blank" class="hover:text-white transition">wellnesstown.it</a>
-        <a href="https://wellnesstown.it/privacy-policy" target="_blank" class="hover:text-white transition">Informativa sulla privacy</a>
+        <a href="https://wellnesstown.it/privacy" target="_blank" class="hover:text-white transition">Informativa sulla privacy</a>
         <a href="https://wellnesstown.it/cookie-policy" target="_blank" class="hover:text-white transition">Cookie policy</a>
       </div>
     </div>
@@ -660,7 +660,7 @@ lucide.createIcons();
           });
           this.style.borderColor = borderOn;
           this.style.background = bgOn;
-          document.getElementById('turno-value').value = selectedDate + '-' + orario.replace(':','');
+          document.getElementById('turno-value').value = selectedDate + '-' + orario.replace(':','.');
         });
         grid.appendChild(b);
       });
@@ -699,6 +699,13 @@ lucide.createIcons();
       method: 'GET',
       mode: 'no-cors'
     }).catch(function(){});
+    if (!document.getElementById('privacy').checked) {
+      var pc = document.getElementById('privacy');
+      pc.style.outline = '2px solid var(--teal)';
+      pc.closest('div').scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(function(){ pc.style.outline = ''; }, 2500);
+      return;
+    }
     if (typeof fbq !== 'undefined') fbq('track','Lead',{content_name: turno});
     var kids = Array.from(form.children);
     kids.forEach(function(el){ if (el.id !== 'thankyou-msg') el.style.display = 'none'; });
