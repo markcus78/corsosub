@@ -41,7 +41,7 @@
   .quote-bg {
     background-image:
       linear-gradient(180deg, rgba(6,24,38,0.85) 0%, rgba(6,24,38,0.92) 100%),
-      url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2400&q=80');
+      url('media/mante.jpg');
     background-size: cover; background-position: center;
   }
   .btn-sand {
@@ -135,8 +135,12 @@ src="https://www.facebook.com/tr?id=555289287964178&ev=PageView&noscript=1"/></n
 </nav>
 
 <!-- HERO -->
-<section class="hero-bg relative min-h-screen flex items-center px-6 md:px-12">
-  <div class="ray" style="left: 12%; height: 70vh;"></div>
+<section class="relative min-h-screen flex items-center px-6 md:px-12" style="background:var(--deep)">
+  <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+    <source src="media/hero-video.mp4" type="video/mp4">
+  </video>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,24,38,0.5) 0%,rgba(6,24,38,0.68) 60%,rgba(6,24,38,0.97) 100%);z-index:1"></div>
+  <div class="ray" style="left: 12%; height: 70vh; z-index:2;"></div>
   <div class="ray" style="left: 28%; height: 55vh; opacity: 0.5;"></div>
   <div class="ray" style="left: 64%; height: 80vh; opacity: 0.7;"></div>
   <div class="ray" style="left: 82%; height: 50vh; opacity: 0.4;"></div>
@@ -210,7 +214,7 @@ src="https://www.facebook.com/tr?id=555289287964178&ev=PageView&noscript=1"/></n
         <p class="text-white/55 serif-italic text-xl">La maggior parte delle persone non ci scende mai. Non perché non vogliono. Perché non sanno come si comincia.</p>
       </div>
       <div class="relative h-[420px] md:h-[520px] rounded-sm overflow-hidden">
-        <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1400&q=80'); background-size: cover; background-position: center;"></div>
+        <div class="absolute inset-0" style="background-image: url('media/istruttore-2.jpg'); background-size: cover; background-position: center;"></div>
         <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 40%, rgba(6,24,38,0.5) 100%);"></div>
         <div class="absolute bottom-6 left-6 right-6">
           <p class="serif-italic text-white/80 text-base">"Tre metri sotto, il mondo cambia."</p>
@@ -289,7 +293,7 @@ src="https://www.facebook.com/tr?id=555289287964178&ev=PageView&noscript=1"/></n
     <div class="grid md:grid-cols-5 gap-12 mt-16 items-start">
       <div class="md:col-span-2">
         <div class="aspect-[4/5] rounded-sm overflow-hidden border border-white/10">
-          <div class="w-full h-full" style="background-image: url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1000&q=80'); background-size: cover; background-position: center;"></div>
+          <div class="w-full h-full" style="background-image: url('media/istruttore-1.jpg'); background-size: cover; background-position: center;"></div>
         </div>
         <p class="mt-4 text-xs uppercase tracking-[0.22em] text-white/55">Adriano Natalini · Istruttore</p>
       </div>
