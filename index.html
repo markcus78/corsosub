@@ -695,10 +695,9 @@ lucide.createIcons();
       email: document.getElementById('email').value,
       turno: turno
     };
-    fetch(ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: new URLSearchParams(payload)
+    fetch(ENDPOINT + '?' + new URLSearchParams(payload).toString(), {
+      method: 'GET',
+      mode: 'no-cors'
     }).catch(function(){});
     if (typeof fbq !== 'undefined') fbq('track','Lead',{content_name: turno});
     var kids = Array.from(form.children);
